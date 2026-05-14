@@ -13,8 +13,12 @@ from pathlib import Path
 import schedule
 
 JST = timezone(timedelta(hours=9))
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "data", "news.json")
+PROJ_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC_DIR = os.path.join(PROJ_ROOT, "src")
+DATA_FILE = os.path.join(PROJ_ROOT, "data", "news.json")
+
+# 将 src/ 加入 sys.path 以便导入同目录模块
+sys.path.insert(0, SRC_DIR)
 
 # 新闻保鲜期（小时）
 MAX_AGE_HOURS = 3

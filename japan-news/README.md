@@ -18,8 +18,8 @@
 pip install -r requirements.txt
 
 # 2. 手动刷新（单次）
-python fetch_news.py      # 抓取新闻 → data/news.json
-python generate_site.py   # 生成静态站点 → output/
+python src/fetch_news.py      # 抓取新闻 → data/news.json
+python src/generate_site.py   # 生成静态站点 → output/
 
 # 3. 浏览器打开
 # output/index.html
@@ -29,29 +29,31 @@ python generate_site.py   # 生成静态站点 → output/
 
 ```bash
 # 后台运行，每 2 小时自动刷新
-python scheduler.py
+python src/scheduler.py
 
 # 单次运行
-python scheduler.py --once
+python src/scheduler.py --once
 ```
 
 ## 项目结构
 
 ```
 japan-news/
-├── fetch_news.py          # 4 源并发抓取 + 去重排序
-├── generate_site.py       # Jinja2 静态站点生成
-├── scheduler.py           # 定时调度器
-├── requirements.txt       # Python 依赖
+├── src/
+│   ├── fetch_news.py        # 4 源并发抓取 + 去重排序
+│   ├── generate_site.py     # Jinja2 静态站点生成
+│   ├── scheduler.py         # 定时调度器
+│   └── templates/
+│       ├── index.html       # 列表页模板
+│       └── detail.html      # 详情页模板
 ├── data/
-│   └── news.json          # Top 20 新闻数据
-├── templates/
-│   ├── index.html         # 列表页模板
-│   └── detail.html        # 详情页模板
-└── output/
-    ├── index.html         # 生成的列表页
-    ├── style.css          # 日式简约样式
-    └── detail/            # 20 个详情页
+│   └── news.json            # Top 20 新闻数据（运行时生成）
+├── output/
+│   ├── index.html           # 生成的列表页
+│   ├── style.css            # 日式简约样式
+│   └── detail/              # 20 个详情页（运行时生成）
+├── requirements.txt         # Python 依赖
+└── README.md
 ```
 
 ## 技术栈

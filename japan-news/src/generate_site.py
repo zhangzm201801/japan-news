@@ -11,10 +11,11 @@ from jinja2 import Environment, FileSystemLoader
 
 JST = timezone(timedelta(hours=9))
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "data", "news.json")
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+PROJ_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC_DIR = os.path.join(PROJ_ROOT, "src")
+DATA_FILE = os.path.join(PROJ_ROOT, "data", "news.json")
+TEMPLATE_DIR = os.path.join(SRC_DIR, "templates")
+OUTPUT_DIR = os.path.join(PROJ_ROOT, "output")
 
 env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
 

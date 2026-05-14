@@ -18,6 +18,9 @@ japan-news/data/news.json
 japan-news/output/detail/
 japan-news/output/index.html
 
+# Claude settings
+.claude/
+
 # Virtual env
 venv/
 .venv/

@@ -34,7 +34,8 @@ RSS_SOURCES = [
     },
 ]
 
-DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+PROJ_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(PROJ_ROOT, "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 DATA_FILE = os.path.join(DATA_DIR, "news.json")
 
