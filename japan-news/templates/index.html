@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本ニュース热点 TOP 20 — {{ date }}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="site-title">
+                <span class="title-icon">&#127759;</span>
+                日本ニュース热点
+                <span class="title-rank">TOP 20</span>
+            </h1>
+            <p class="header-meta">
+                <span class="header-date">{{ date }}</span>
+                <span class="header-divider">|</span>
+                <span class="header-updated">更新: {{ updated_at }}</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="news-grid">
+            {% for item in items %}
+            <article class="news-card">
+                <a href="detail/{{ date }}/{{ item.id }}.html" class="news-card-link">
+                    <div class="card-rank">
+                        <span class="rank-number">{{ item.id }}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta-top">
+                            <span class="badge badge-category">{{ item.category }}</span>
+                            <span class="badge badge-source">{{ item.source }}</span>
+                        </div>
+                        <h2 class="card-title">{{ item.title }}</h2>
+                        {% if item.summary %}<p class="card-summary">{{ item.summary }}</p>{% endif %}
+                        <time class="card-time" datetime="{{ item.published }}">{{ item.published }}</time>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>自動集計 &middot; 毎日更新 &middot; データ元: Yahoo! Japan / NHK / Google News / 朝日新聞</p>
+    </footer>
+</body>
+</html>

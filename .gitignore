@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project — generated output (reproducible via fetch+generate)
+japan-news/data/news.json
+japan-news/output/detail/
+japan-news/output/index.html
+
+# Virtual env
+venv/
+.venv/

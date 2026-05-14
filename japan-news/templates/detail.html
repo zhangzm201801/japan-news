@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.title }} — 日本ニュース热点</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header class="site-header detail-header">
+        <div class="header-inner">
+            <a href="../../index.html" class="back-link">&#8592; 一覧に戻る</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="detail-article">
+            <header class="detail-head">
+                <div class="detail-badges">
+                    <span class="badge badge-category">{{ item.category }}</span>
+                    <span class="badge badge-source">{{ item.source }}</span>
+                </div>
+                <h1 class="detail-title">{{ item.title }}</h1>
+                <div class="detail-meta">
+                    <time datetime="{{ item.published }}">{{ item.published }}</time>
+                </div>
+            </header>
+
+            <section class="detail-summary">
+                <h2 class="section-label">概要</h2>
+                {% if item.summary %}<p>{{ item.summary }}</p>{% else %}<p>この記事の詳細は元の記事をご確認ください。</p>{% endif %}
+            </section>
+
+            <div class="detail-actions">
+                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    元の記事を読む &#8599;
+                </a>
+                <a href="../../index.html" class="btn btn-secondary">
+                    &#8592; 一覧に戻る
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>自動集計 &middot; 毎日更新 &middot; データ元: Yahoo! Japan / NHK / Google News / 朝日新聞</p>
+    </footer>
+</body>
+</html>
